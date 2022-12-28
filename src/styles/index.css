@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
+
+*, html {
+    padding: 0;
+    margin: 0;
+    font-family: 'Inconsolata', monospace;
+}
+
+/** Custom Variables **/
+:root {
+    --orange: hsl(25, 97%, 53%);
+    --marine-blue: hsl(216, 12%, 8%);
+    --dark-blue: hsl(213, 19%, 18%);
+    --mid-grey:  hsl(216, 12%, 54%);
+    --light-grey: hsl(217, 12%, 63%);
+    --white: hsl(0, 0%, 100%);
+}
+
+.body-copy {
+    /* 15 px */
+    font-size: 0.9375rem;
+}
