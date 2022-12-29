@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
 
-*, html {
+* {
     padding: 0;
     margin: 0;
     font-family: 'Inconsolata', monospace;
@@ -14,9 +14,109 @@
     --mid-grey:  hsl(216, 12%, 54%);
     --light-grey: hsl(217, 12%, 63%);
     --white: hsl(0, 0%, 100%);
+    --button-blue: hsl(209, 22%, 24%);
+    font-size: 16px;
+}
+
+html, body {
+    height: 100%;
+}
+
+main, article {
+    height: inherit;
+}
+
+article { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+body {
+    background-color: var(--marine-blue);
+    color: var(--white);
+}
+
+h1 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
 }
 
 .body-copy {
-    /* 15 px */
     font-size: 0.9375rem;
+    color: var(--mid-grey);
+    line-height: 20px;
+}
+
+.card-review {
+    background-color: var(--dark-blue);
+    padding: 30px 20px;
+    border-radius: 30px;
+    max-width: 300px;
+    margin: 20px;
+}
+
+.star-container {
+    width: 16px;
+    height: 16px;
+    padding: 10px;
+    border-radius: 100%;
+    background-color: var(--button-blue);
+}
+
+.rating-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.rating-scale {
+    padding-top: 10px;
+    padding-bottom:10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    color: var(--light-grey);
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 100%;
+    font-weight: bold;
+    background-color: var(--button-blue);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--light-grey);
+    color: var(--white);
+}
+
+button[data-selected="true"] {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+input[type="submit"] {
+    background-color: var(--orange);
+    border: none;
+    border-radius: 40px;
+    padding: 15px 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    color: var(--orange);
+    background-color: var(--white)
+}
+
+@media (max-width: 376px) {
+    .card-review {
+        border-radius: 10px;
+    }
 }
