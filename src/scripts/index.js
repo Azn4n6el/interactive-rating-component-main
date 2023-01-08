@@ -1,35 +1,24 @@
 (()=>{
-
-    const [...allButtons] = document.getElementById("rating-scale").getElementsByTagName('button');
     const formSearch = document.getElementById('rating-form');
-
-    const globalValues = {
-        selectedRating: undefined,
-    }
+    const ratingSection = document.getElementById('rating-start');
+    const ratingSelectionDescription = document.getElementById('rating-selected-description');
+    const thankYouCardSearch = document.getElementById('thank-you');
 
     const initialize = () => {
-        allButtons.forEach(element => {
-            element.addEventListener('click', onSelectReview);
-        });
         formSearch.addEventListener('submit', onSubmitForm);
     }
 
-    function onSelectReview (event){
-        allButtons.forEach(element => {
-            element.removeAttribute('data-selected');
-        })
-        event.target.setAttribute('data-selected', "true");
-        console.log(event);
-    };
-
     function onSubmitForm (event){
         event.preventDefault();
+        let selectedRating = 0;
         [...event.target].forEach(element => {
-            if (element.hasAttribute('data-selected')){
-                globalValues.selectedRating = element.value;
+            if (element.checked){
+                selectedRating = element.value;
             }
-        })
-        console.log(globalValues.selectedRating);
+        });
+        ratingSection.classList.add('hideable-card');
+        ratingSelectionDescription.textContent = `You selected ${selectedRating} out of 5`
+        thankYouCardSearch.classList.remove("hideable-card");
     }
 
     initialize();

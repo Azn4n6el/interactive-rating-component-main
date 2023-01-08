@@ -38,7 +38,7 @@ body {
     color: var(--white);
 }
 
-h1 {
+h1, h2 {
     font-size: 1.5rem;
     letter-spacing: 1px;
 }
@@ -85,18 +85,48 @@ button {
     border: none;
     border-radius: 100%;
     font-weight: bold;
-    background-color: var(--button-blue);
     cursor: pointer;
 }
 
-button:hover {
+.custom-radio {
+    background-color: var(--button-blue);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+}
+
+input[type="radio"]:checked~:where(.custom-radio, label) {
+    color: var(--white);
+    background-color: var(--orange);
+}
+
+input[type="radio"]:hover~:where(.custom-radio, label) {
     background-color: var(--light-grey);
     color: var(--white);
 }
 
-button[data-selected="true"] {
-    background-color: var(--orange);
-    color: var(--white);
+.radio-container {
+    position:relative;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index:2;
+    cursor: pointer;
+}
+
+.radio-container label{
+    z-index: 1;
+    color: var(--mid-grey);
 }
 
 input[type="submit"] {
@@ -113,6 +143,38 @@ input[type="submit"] {
 input[type="submit"]:hover {
     color: var(--orange);
     background-color: var(--white)
+}
+
+/* Thank you state */
+.centered-card {
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    row-gap: 25px;
+}
+
+.hideable-card {
+    display: none;
+}
+
+.rating-selection {
+    display: flex;
+    justify-content: center;
+}
+
+.rating-selection .body-copy {
+    color: var(--orange);
+    background-color: var(--button-blue);
+    border-radius: 20px;
+    padding: 4px 20px;
+}
+
+.thanks-description {
+    margin-bottom: 10px;
+}
+
+.thanks-description h2 {
+    margin-bottom: 10px;
 }
 
 @media (max-width: 376px) {
